@@ -1,5 +1,13 @@
-const Index = () => (
-    <h1>Ciao!!</h1>
-);
+import buildClient from '../api/build-client';
 
-export default Index;
+const LandingPage = ({ currentUser }) => {
+    return <h1>{currentUser ? 'You are signed in' : 'Please sign in!'}</h1>
+};
+
+LandingPage.getInitialProps = async context => {
+    const client = buildClient(context);
+    const { data } = await client.get('/api/users/currentuser');
+    return data;
+};
+
+export default LandingPage;
