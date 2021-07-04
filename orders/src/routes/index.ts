@@ -1,10 +1,16 @@
 import express, { Request, Response } from 'express';
+import { requireAuth } from '@actvalue/common';
+import { Order } from '../models/order';
 
 const router = express.Router();
 
-router.get('/api/orders', async (req: Request, res: Response) => {
+router.get('/api/orders', requireAuth, async (req: Request, res: Response) => {
 
-    return res.send('Ok');
+    const orders = await Order.find({
+        userId: req.currentUser!.id
+    })
+    .populate('ticket');
+    return res.send(orders);
 });
 
 export { router as indexOrderRouter };
