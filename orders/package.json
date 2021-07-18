@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@actvalue/common": "^1.0.8",
+    "@actvalue/common": "^1.0.10",
     "@types/cookie-session": "^2.0.42",
     "@types/express": "^4.17.12",
     "@types/jsonwebtoken": "^8.5.3",
@@ -29,6 +29,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb-memory-server": "^6.9.6",
     "mongoose": "^5.13.2",
+    "mongoose-update-if-current": "^1.4.0",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.3.5"
   },
