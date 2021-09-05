@@ -9,12 +9,12 @@ import { natsWrapper } from '../nats-wrapper';
 
 const router = express.Router();
 
-const EXPIRATION_WINDOW_SECONDS = 15 * 60;
+const EXPIRATION_WINDOW_SECONDS = 1 * 60;
 
 router.post('/api/orders', requireAuth, [
     body('ticketId')
         .not().isEmpty()
-        .custom((input: string) => mongoose.Types.ObjectId.isValid(input)) // assumption: using MongoDb
+        // .custom((input: string) => mongoose.Types.ObjectId.isValid(input)) // assumption: using MongoDb
         .withMessage('Ticket Id must be provided')
 ], validateRequest, async (req: Request, res: Response) => {
     const { ticketId } = req.body;
