@@ -42,9 +42,9 @@ afterAll(async () => {
     await mongoose.connection.close();
 });
 
-global.signin = () => {
+global.signin = (id?: string) => {
     // Build JWT payload
-    const payload = { id: new mongoose.Types.ObjectId().toHexString(), email: 'test@test.com' };
+    const payload = { id: id || new mongoose.Types.ObjectId().toHexString(), email: 'test@test.com' };
     // Create JWT
     const token = jwt.sign(payload, process.env.JWT_KEY!);
     // Build session object
