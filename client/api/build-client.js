@@ -4,7 +4,8 @@ import axios from 'axios';
     if (typeof window === 'undefined') {
         // server
         return axios.create({
-            baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+            // baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+            baseURL: 'http://ticketing-prod.actvalue.com',
             headers: req.headers
         })
     } else {
